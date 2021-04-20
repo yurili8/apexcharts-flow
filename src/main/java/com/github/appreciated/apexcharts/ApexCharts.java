@@ -163,6 +163,7 @@ public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasS
 
     /**
      * To enable client-side debug logs
+     *
      * @param enabled true enabled the debug output false disables it
      */
     public void setDebug(boolean enabled) {
@@ -172,6 +173,7 @@ public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasS
     /**
      * Method to set update the data for all chart types except {@link com.github.appreciated.apexcharts.config.chart.Type#pie} and {@link com.github.appreciated.apexcharts.config.chart.Type#donut}.
      * For these both types use setSeries{@link #setSeries(Double[])}
+     *
      * @param series the data series to update to the Chart with
      */
     public void updateSeries(Double... series) {
@@ -182,6 +184,7 @@ public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasS
     /**
      * Method to set update the data for all chart types except {@link com.github.appreciated.apexcharts.config.chart.Type#pie} and {@link com.github.appreciated.apexcharts.config.chart.Type#donut}.
      * For all other chart types use setSeries{@link #setSeries(Series[])}
+     *
      * @param series the data series to update to the Chart with
      */
     public void updateSeries(Series... series) {
@@ -192,6 +195,7 @@ public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasS
     /**
      * Method to set the data for all chart types except {@link com.github.appreciated.apexcharts.config.chart.Type#pie} and {@link com.github.appreciated.apexcharts.config.chart.Type#donut}.
      * For these both types use setSeries{@link #setSeries(Double[])}
+     *
      * @param series the data series to assign to the Chart
      */
     public void setSeries(Series... series) {
@@ -205,6 +209,7 @@ public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasS
     /**
      * Method to set the data for {@link com.github.appreciated.apexcharts.config.chart.Type#pie} and {@link com.github.appreciated.apexcharts.config.chart.Type#donut}.
      * For all other chart types use setSeries{@link #setSeries(Series[])}
+     *
      * @param series the data series to assign to the Chart
      */
     public void setSeries(Double... series) {
@@ -216,36 +221,51 @@ public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasS
     }
 
     /**
-    * Method to toggle the visibility of series programmatically. Useful when you have a custom legend.
-    * @param seriesName the series name which you want to toggle visibility for
-    */
+     * Method to toggle the visibility of series programmatically. Useful when you have a custom legend.
+     *
+     * @param seriesName the series name which you want to toggle visibility for
+     */
     public PendingJavaScriptResult toggleSeries(String seriesName) {
         return getElement().callJsFunction("toggleSeries", seriesName);
     }
 
     /**
-    * Method  to show the hidden series. If the series is already visible, this doesn’t affect it.
-    * @param seriesName the series name which you want to show
-    */
+     * Method  to show the hidden series. If the series is already visible, this doesn’t affect it.
+     *
+     * @param seriesName the series name which you want to show
+     */
     public void showSeries(String seriesName) {
         getElement().callJsFunction("showSeries", seriesName);
     }
 
     /**
-    * Method to hide the visible series. If the series is already hidden, this method doesn’t affect it.
-    * @param seriesName the series name which you want to hide
-    */
+     * Method to hide the visible series. If the series is already hidden, this method doesn’t affect it.
+     *
+     * @param seriesName the series name which you want to hide
+     */
     public void hideSeries(String seriesName) {
         getElement().callJsFunction("hideSeries", seriesName);
     }
 
     /**
-    * Method to resets all toggled series and bring back the chart to its original state.
-    * @param shouldUpdateChart after resetting the series, the chart data should update and return to it’s original series
-    * @param shouldResetZoom if the user has zoomed in when this method is called, the zoom level should also reset.
-    */
+     * Method to resets all toggled series and bring back the chart to its original state.
+     *
+     * @param shouldUpdateChart after resetting the series, the chart data should update and return to it’s original series
+     * @param shouldResetZoom   if the user has zoomed in when this method is called, the zoom level should also reset.
+     */
     public void resetSeries(Boolean shouldUpdateChart, Boolean shouldResetZoom) {
         getElement().callJsFunction("resetSeries", shouldUpdateChart, shouldResetZoom);
+    }
+
+
+    /**
+     * Method to update the options without redraw the series.
+     * @param redrawredrawPaths
+     * @param animate
+     * @param updateSyncedCharts
+     */
+    public void updateOptions(Boolean redrawredrawPaths, Boolean animate, Boolean updateSyncedCharts) {
+        getElement().callJsFunction("updateOptions", redrawredrawPaths, animate, updateSyncedCharts);
     }
 
     /**

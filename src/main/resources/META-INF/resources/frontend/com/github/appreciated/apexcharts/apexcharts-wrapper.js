@@ -247,6 +247,19 @@ class ApexChartsWrapper extends PolymerElement {
     }
 
     /**
+     * update the options
+     * @param redrawPaths
+     * @param animate
+     * @param updateSyncedCharts
+     */
+    updateOptions(redrawPaths, animate, updateSyncedCharts) {
+        if (this.chartComponent) {
+            this.updateConfig();
+            this.chartComponent.updateOptions(this.config, redrawPaths, animate, updateSyncedCharts);
+        }
+    }
+
+    /**
      * This is due to the way the eval function works eval("function (){return \"test\"}") will throw an
      * Uncaught SyntaxError: Function statements require a function name.
      *
