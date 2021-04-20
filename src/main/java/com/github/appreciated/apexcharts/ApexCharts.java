@@ -23,6 +23,7 @@ import java.util.Arrays;
 @JsModule("./com/github/appreciated/apexcharts/apexcharts-wrapper.js")
 @CssImport(value = "./com/github/appreciated/apexcharts/apexcharts-wrapper-styles.css", id = "apex-charts-style")
 public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasSize, HasStyle, HasTheme {
+    private static final long serialVersionUID = 7021076075172505495L;
     private ObjectMapper objectMapper;
 
     public ApexCharts() {

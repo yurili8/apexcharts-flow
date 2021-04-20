@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vaadin.flow.templatemodel.ModelEncoder;
 
 public class JsonEncoder<T> implements ModelEncoder<T, String> {
+    private static final long serialVersionUID = -2292359950228522320L;
+
     @Override
     public String encode(T value) {
         try {
