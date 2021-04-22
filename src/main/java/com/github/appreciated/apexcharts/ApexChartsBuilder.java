@@ -194,7 +194,7 @@ public class ApexChartsBuilder {
     }
 
     public ApexCharts build() {
-        ApexCharts apexCharts = new ApexCharts();
+        ApexCharts apexCharts = getApexCharts();
         if (annotations != null) {
             apexCharts.setAnnotations(annotations);
         }
@@ -265,5 +265,9 @@ public class ApexChartsBuilder {
             apexCharts.setObjectMapper(objectMapper);
         }
         return apexCharts;
+    }
+
+    protected ApexCharts getApexCharts() {
+        return new ApexCharts();
     }
 }
